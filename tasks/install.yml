@@ -1,0 +1,27 @@
+---
+# Install cleanup packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ cleanup_packages_remove }}"
+    state: absent
+  become: true
+  when: cleanup_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ cleanup_packages_repos }}"
+    state: "{{ cleanup_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ cleanup_packages_prereq }}"
+    state: "{{ cleanup_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ cleanup_packages_install }}"
+    state: "{{ cleanup_packages_state }}"
+  become: true

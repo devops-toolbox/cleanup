@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+cleanup_repos_create: "{{ _cleanup_repos_create['all']
+  | union ( _cleanup_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+cleanup_repos_download: "{{ _cleanup_repos_download['all']
+  | union ( _cleanup_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+cleanup_templates_copy: "{{ _cleanup_templates_copy['all']
+  | union ( _cleanup_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+cleanup_services_enable: "{{ _cleanup_services_enable['all']
+  | union ( _cleanup_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+cleanup_selinux_enable: "{{ _cleanup_selinux_enable['all']
+  | union ( _cleanup_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+cleanup_packages_remove: "{{ _cleanup_packages_remove['all']
+  | union ( _cleanup_packages_remove[my_os]
+  | default([]) ) }}"
+cleanup_packages_repos: "{{ _cleanup_packages_repos['all']
+  | union ( _cleanup_packages_repos[my_os]
+  | default([]) ) }}"
+cleanup_packages_prereq: "{{ _cleanup_packages_prereq['all']
+  | union ( _cleanup_packages_prereq[my_os]
+  | default([]) ) }}"
+cleanup_packages_install: "{{ _cleanup_packages_install['all']
+  | union ( _cleanup_packages_install[my_os]
+  | default([]) ) }}"

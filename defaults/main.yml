@@ -1,0 +1,19 @@
+---
+# defaults file for cleanup
+
+cleanup_packages_state: present
+cleanup_remove_packages: true
+cleanup_enable_service: true
+cleanup_enable_selinux: true
+cleanup_copy_templates: true
+cleanup_firewall_configure: true
+cleanup_firewall_rules:
+  - service: ssh
+  - port: 3389
+cleanup_users:
+  - user: devops
+    group: docker
+cleanup_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true
