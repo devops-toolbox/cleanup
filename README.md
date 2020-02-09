@@ -8,10 +8,10 @@ cleanup: Cleanup
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.cleanup](https://galaxy.ansible.com/devops-toolbox.cleanup)
+[https://galaxy.ansible.com/devopstoolbox.cleanup](https://galaxy.ansible.com/devopstoolbox.cleanup)
 
 ```bash
-ansible-galaxy install devops-toolbox.cleanup
+ansible-galaxy install devopstoolbox.cleanup
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: cleanup is configured
       import_role:
-        name: devops-toolbox.cleanup
+        name: devopstoolbox.cleanup
       vars:
         cleanup_packages_state: present
         cleanup_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
